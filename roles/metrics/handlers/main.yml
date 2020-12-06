@@ -1,0 +1,4 @@
+- name: Restart rpi-grafana
+  ansible.builtin.service:
+    name: rpi-grafana
+    state: restarted

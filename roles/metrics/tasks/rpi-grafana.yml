@@ -1,0 +1,26 @@
+- name: Clone the rpi-grafana project
+  git:
+    repo: https://github.com/mtik00/rpi-grafana.git
+    dest: "{{ source_dir }}/rpi-grafana"
+    update: yes
+    force: yes
+  notify:
+  - Restart rpi-grafana
+
+- name: Check docker volumes
+  docker_volume:
+    name: "{{ item }}"
+  loop: [grafana-data, influx-data]
+
+- name: Create the service
+  command: "{{ source_dir }}/rpi-grafana/bin/install-service.sh"
+  become: yes
+  args:
+    creates: /etc/systemd/system/rpi-grafana.service
+  notify:
+  - Restart rpi-grafana
+
+- name: Create the docker-compose .env file
+  copy:
+    src: ./instance/docker-compose-env.sh
+    dest: "{{ source_dir }}/rpi-grafana/.env"
