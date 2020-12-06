@@ -15,6 +15,8 @@ Install the ansible-galaxy roles with:
 
 You'll also need to create `./instance/docker-compose-env.sh`.  This file will be copied over to the metrics server.
 
+The SSH key that gets distributed defaults to `.ssh/id_ecdsa.pub`.  YMMV.
+
 ## Running
 
 Pick your playbook and run it with something like:

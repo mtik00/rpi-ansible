@@ -1,1 +1,2 @@
 timezone: America/Denver
+local_ssh_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_ecdsa.pub') }}"

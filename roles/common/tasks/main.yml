@@ -11,3 +11,6 @@
   apt: name={{ item }} state=latest
   loop: [docker.io, libffi-dev, python3-pip, curl, jq]
   become: yes
+
+- import_tasks: ssh.yml
+  tags: ssh
