@@ -13,7 +13,7 @@ Install the ansible-galaxy roles with:
 
     ansible-galaxy install -r requirements.yml
 
-You'll also need to create `./docker-compose-env.sh`.  This file will be copied over to the metrics server.
+You'll also need to create `./instance/docker-compose-env.sh`.  This file will be copied over to the metrics server.
 
 ## Running
 
