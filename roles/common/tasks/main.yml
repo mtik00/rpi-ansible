@@ -1,4 +1,7 @@
 - name: docker.io
   apt:
-    name: docker.io
+    name:
+      - docker.io
+      - libffi-dev
+      - python3-pip
     state: present
