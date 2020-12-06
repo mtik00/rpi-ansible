@@ -10,6 +10,10 @@ You need to create a hosts file at `./instance/hosts`.  Maybe something like thi
     [rpi]
     my-pi
 
+Install the ansible-galaxy roles with:
+
+    ansible-galaxy install -r requirements.yml
+
 ## Running
 
 Pick your playbook and run it with something like:

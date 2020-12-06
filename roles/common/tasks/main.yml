@@ -1,3 +1,6 @@
+- include_role:
+    name: yatesr.timezone
+
 - name: docker.io
   apt:
     name:
