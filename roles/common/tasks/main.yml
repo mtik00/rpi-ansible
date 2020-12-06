@@ -1,10 +1,13 @@
 - include_role:
     name: yatesr.timezone
 
-- name: docker.io
+- name: Update apt packages
+  become: true
   apt:
-    name:
-      - docker.io
-      - libffi-dev
-      - python3-pip
-    state: present
+    update_cache: yes
+    cache_valid_time: 86400 #One day
+
+- name: Install common packages
+  apt: name={{ item }} state=latest
+  loop: [docker.io, libffi-dev, python3-pip, curl, jq]
+  become: yes
